@@ -1,8 +1,8 @@
 import csv
 import random
 
-user = random.randint(0,721)
-computer = random.randint(0,721)
+user = random.randint(0,150)
+computer = random.randint(0,150)
 diff=userHP=computerHP=0
 
 
@@ -39,8 +39,10 @@ with open('Pokemon.csv','rb') as f:
             print "SPEED: "+`computerSpeed`
 
 print "FIGHT!"
-diff = abs(userATK - computerDEF)
-print "Difference: "+`diff`
+diff1 = abs(userATK - computerDEF)
+diff2 = abs(computerATK - userDEF)
+
+print "Difference: "+`diff1`+" "+`diff2`
 print "--------------------------"
 #Calculating whose turn it is
 if userSpeed>computerSpeed:
@@ -54,7 +56,7 @@ else:
 def userAttack():
     print userPkmn+" Attacks!"
     global computerHP
-    computerHP -= diff
+    computerHP -= diff1
     print "USER HP: "+`userHP`
     print "COMPUTER HP: "+`computerHP`
     print "-------------------------"
@@ -62,7 +64,7 @@ def userAttack():
 def computerAttack():
     print computerPkmn+" Attacks!"
     global userHP
-    userHP -= diff
+    userHP -= diff2
     print "USER HP: "+`userHP`
     print "COMPUTER HP: "+`computerHP`
     print "-------------------------"
